@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue学习</title>
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="Box" v-cloak>
+			<p v-cloak>{{massage}}</p>
+			<p v-html="url" v-cloak></p>
+			<img v-bind:src="imgurl" >
+		</div>
+		
+		
+		
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			setTimeout(function(){
+			const app = new Vue({
+				el:'#Box',
+				data:{
+					massage:'你好呀',
+					url:'<a href = "http://www.baidu.com">百度一下</a>',
+					imgurl:'https://img10.360buyimg.com/pop/s1180x940_jfs/t1/115692/37/13637/85108/5f23b199Efb86c376/91033d06b16ed625.jpg.webp',
+				}
+			})
+			},1000)
+		</script>
+	</body>
+</html>

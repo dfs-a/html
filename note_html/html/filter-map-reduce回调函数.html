@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<div id="app">
+		
+	</div>
+<script src="../../js/vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+const app = new Vue({
+	el:'#app',
+	data:{
+
+	},
+
+})
+
+const num = [10,20,50,40,60,70,80]
+let total = num.filter(function(n){
+	return n<50
+}).map(function(n){
+	return n * 2
+}).reduce(function(prevvalue,n){
+	return prevvalue + n
+},0)
+console.log(total);
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <p :style="{key(属性名):value(属性值)}"></p> -->
+			<!-- 属性值必须加上双引号，不然当作变量 -->
+			<!-- 一 -->
+			<p :style="{fontSize:finalSieze}">{{message}}</p>
+			<!-- 二 -->
+			<p :style="{fontSize:'20px'}">{{message}}</p>
+			<!-- 三 -->
+			<p :style="getstyle()">{{message}}</p>
+			<!-- 四，数组语法 -->
+			<p :style="[baseStyle]">{{message}}</p>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					message:'玩耍',
+					finalSieze:'20px',
+					baseStyle:{fontSize:'30px'}
+				},
+				methods:{
+					getstyle:function(){
+						return {fontSize:this.finalSieze}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

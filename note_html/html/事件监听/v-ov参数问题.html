@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<div id="app">
+			<button type="button" @click="btu1click">按钮一</button>
+			<button type="button" @click=btu1click()>按钮二</button>
+			<!-- 点击事件的函数定义了参数，也可以不必传参数 就可以运行
+			 在事件点击时，写方法时省略了小括号，但是方法本身是需要一个参数
+			 这个时候，vue会默认将浏览器产生的event事件对象作为参数传入到方法
+			 -->
+			<button type="button" @click="btu2click">按钮三</button>
+			<!-- 在调用方式，如何手动的获取到浏览器参数的event对象：$event -->
+			<button type="button" @click="btu2click($event)">按钮四</button>
+			<button type="button">按钮五</button>
+		</div>
+<script src="../js/vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+const app = new Vue({
+	el:'#app',
+	data:{
+		
+	},
+	methods:{
+		btu1click(){
+			console.log("btu1")
+		},
+		btu2click(name){
+			
+			console.log(name+"----------")
+		},
+	}
+})
+		
+	</body>
+</html>

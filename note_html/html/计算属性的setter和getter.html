@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{fullName}}</p>
+		</div>
+		
+<script src="js/vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+const app = new Vue({
+	el:'#app',
+	data:{
+		firstName:'dong',
+		lastName:'fengsu',
+	},
+	// computed函数主要用于字符串之间的拼接,以及计算方面所以相对于methods函数来说,computed函数有缓存功能更适用于在这方面
+	computed:{
+		// 但是一般的写法还是
+		fullName:function(){
+			return this.firstName + this.lastName;
+		}
+		
+		fullName:{
+			// 一般只需要设置get方法即可,set方法可设可不设
+			set:function(newValue){
+				const names = newValue.split(' ');
+				this.firstName = names[0];
+				this.lastName = names[1];
+			},
+			get:function(){
+				return this.firstName+this.lastName
+			}
+		}
+	}
+})
+</script>
+	</body>
+</html>

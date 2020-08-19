@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<div id="app">
+	<span v-if=isuser>
+		<label for = "username">用户账号</label>
+		<!-- 当不希望input输入框复用时，加上key属性，后面跟上id值做标识 -->
+		<!-- 如果我们不希望vue出现类似重复利用的问题，可以给对应的input添加key，并且要保证key值不同 -->
+		<input type="text" id="username" value="" placeholder="用户账号" key = "username"/><br>
+		<label for = "ps">用户密码</label>
+		<input type="password" id="ps" value="" placeholder="用户密码"/>		
+	</span>
+	<span v-else>
+		<label for = "email">用户邮箱</label>
+		<input type="text" name="em" id="email" value="" placeholder="用户邮箱" key = "email"/><br>
+		<label for = "emas">用户密码</label>
+		<input type="password" name="ps" id="emas" value="" placeholder="用户密码"/>
+	</span>
+	<br>
+	<button @click="isuser = !isuser">切换邮箱登陆</button>
+</div>
+<script src="../js/vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+		isuser : true
+		}
+	})
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#app li{
+				list-style: none;
+			}
+			.active{
+				color: #F18300;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(item,index) in name" v-bind:class="{active:currentIndex === index}" v-on:click="Click(index)">{{item}}</li>
+			
+			</ul>
+		</div>
+		
+		
+<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:"#app",
+		data:{
+			name:['拯救大兵瑞恩','海绵宝宝','我们的父辈','八佰'],
+
+			currentIndex : 0
+		},
+		methods:{
+			Click:function(index){
+				this.currentIndex = index
+			}
+		}
+	})
+</script>
+	</body>
+</html>

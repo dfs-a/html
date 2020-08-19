@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				color: #1B66C7;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="Box">
+			<!-- v-bind绑定class的格式主要为键值对，key：value，key1：value1 采用的主要是对象语法{}-->
+			<p v-bind:class="{active:isActive,line:isLine}">{{message}}</p>
+			<!-- 第二种方法 -->
+			<p v-bind:class="getClasses()">{{message}}</p>
+			<button v-on:click="btnClink">点击</button>
+		
+		</div>
+		
+		
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#Box',
+				data:{
+					message:'你好',
+					isActive:true,
+					isLine:true
+				},
+				methods:{
+					btnClink:function(){
+						this.isActive = !this.isActive
+					},
+					// 第二种方法
+					getClasses:function(){
+						return {active:this.isActive,line:this.isLine}
+					},
+				}
+			})
+		</script>
+		
+		
+	</body>
+</html>

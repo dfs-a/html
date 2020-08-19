@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>		
+	<div id="app">
+		<!-- stop消除冒泡作用的使用 -->
+		<div @click="divclick">
+			aaaaaa
+			<button @click.stop="btuclick">按钮</button>
+		</div>
+		
+		<!-- prevent消除默认事件的使用 -->
+		<br>
+		<form action="baidu"  method="">
+			<input type="submit" name="" id="" value="提交" @click.prevent="submitclick" />
+		</form>
+		
+		<!-- 监听全部键盘的键帽 -->
+		<input type="text" src="" @keyup="keyUP"/>
+		<!-- 单独监听enter输入键的修饰符 -->
+		<input type="text" src="" @keyup.enter="keyUP"/>
+		
+		<!-- 只触发一次回调，如键盘只能点击一次 -->
+		<button type="button" @click.once="once">点击</button>
+		</div>
+<script src="../js/vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		methods:{
+			btuclick(){
+				console.log("btnclick")
+			},
+			divclick(){
+				console.log("divclick")
+			},
+			submitclick(){
+				console.log("submitclick")
+			},
+			keyUP(){
+				console.log("keyup")
+			},
+			once(){
+				console.log("once")
+			},
+				
+		}
+	})
+	</body>
+</html>

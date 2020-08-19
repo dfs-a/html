@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h3>{{counter}}</h3>
+			<!-- 方法一 -->
+			<!-- <button type="button" v-on:click="counter++">+</button> -->
+			<!-- <button type="button" v-on:click="counter--">-</button> -->
+			<!-- 方法二 -->
+			<!-- <button type="button" v-on:click=incresea>+</button> -->
+			<!-- <button type="button" v-on:click=reduce>-</button> -->
+			<!-- 方法三：语法糖 -->
+			<button type="button" @click=incresea>+</button>
+			<button type="button" @click=reduce>-</button>
+		</div>
+<script src="../js/vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+	const app = new Vue({
+		el:'#app',
+		data:{
+			counter : 0,
+		},
+		methods:{
+			incresea(){
+				this.counter++;
+			},
+			reduce(){
+				this.counter--;
+			}
+		}
+	})
+</script>
+	</body>
+</html>
